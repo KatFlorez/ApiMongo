@@ -11,9 +11,11 @@ export const listar = async(): Promise<Pedido[]>  =>{
         const collection = mongo.db.collection("pedido");
         
         const resultado_de_datos = await collection.find({}).toArray();
-        rs = resultado_de_datos.map((item)=> new Pedido(item._id,item.usuarioId, item.producto (item.nombreProd, item.descripProd, item.precioProd, item.cantidadProd, item.categoriaProd )));
+        console.log(resultado_de_datos)
+        rs = resultado_de_datos.map((item)=> new Pedido(item._id, item.usuarioId, item.productos));
         await mongo.client.close();
         return rs;
+
     }catch (error){
         throw error
     }
