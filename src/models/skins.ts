@@ -14,5 +14,4 @@ export class Skins{
         this.disponible=disponible;
         this.colores=colores;
     }
-
 }

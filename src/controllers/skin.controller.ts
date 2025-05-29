@@ -12,7 +12,7 @@ export const Getskins = async () : Promise<Skins[]> =>{
 
 export const Postskins = async (p: Skins) : Promise<Boolean> =>{
     try{
-       
+    
         return await DaoSkins.insertar(p);
     } catch (error){
         throw error;

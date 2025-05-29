@@ -1,5 +1,5 @@
 import express from 'express';
-import skinrouter from './routes/skins.routes';
+import pedidorouter from './routes/pedido.routes';
 import cors from 'cors';
 
 const app = express ();
@@ -9,7 +9,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}))
 app.use(cors());
-app.use('/api/skin', skinrouter);
+app.use('/api/pedido', pedidorouter);
 
 
 app.listen(PORT,()=>{
