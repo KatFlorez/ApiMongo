@@ -8,7 +8,7 @@ try {
     let respuestica : Usuario []=[];
     const mongo = getConnection();
     const collection = mongo.db.collection("usuarios");
-     const resultado_de_datos = await collection.find({}).toArray();
+    const resultado_de_datos = await collection.find({}).toArray();
             respuestica = resultado_de_datos.map((item)=> new Usuario((item._id), 
             item.nombre,item.edad));
             await mongo.client.close();

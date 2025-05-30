@@ -46,3 +46,18 @@ export const actualizar = async(p: Pedido): Promise<boolean>  =>{
     }
 
 }
+export const Eliminar = async(p:Pedido): Promise<boolean>=>{
+    try {
+        const mongo= getConnection();
+        const collection = mongo.db.collection("pedido");
+        const resultado_de_datos = await collection.deleteOne({id: p._id});
+        await mongo.client.close();
+        return resultado_de_datos.acknowledged;
+        
+    } catch (error) {
+        throw error
+        
+    }
+}
+
+
