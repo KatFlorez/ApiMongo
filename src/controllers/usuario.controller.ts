@@ -13,7 +13,6 @@ export const Getusuarios = async () : Promise<Usuario[]> =>{
 
 export const Postusuario = async (p: Usuario) : Promise<Boolean> =>{
     try{
-       
         return await DaoUsuario.insertar(p);
     } catch (error){
         throw error;
