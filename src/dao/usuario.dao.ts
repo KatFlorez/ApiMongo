@@ -10,7 +10,7 @@ try {
     const collection = mongo.db.collection("usuarios");
      const resultado_de_datos = await collection.find({}).toArray();
             respuestica = resultado_de_datos.map((item)=> new Usuario((item._id), 
-            item.nombre));
+            item.nombre,item.edad));
             await mongo.client.close();
             return respuestica;
 } catch (error) {
@@ -38,7 +38,8 @@ export const actualizar = async(p: Usuario): Promise<boolean>  =>{
     try {
         const mongo= getConnection();
         const collection = mongo.db.collection("usuarios");
-        const resultado_de_datos = await collection.updateOne({_id: p._id},p);
+        const resultado_de_datos = await collection.updateOne({ id: p._id },
+  { $set: {nombre:p.nombre, edad:p.edad} });
         await mongo.client.close();
         return resultado_de_datos.acknowledged;
     }catch (error){
@@ -51,7 +52,7 @@ export const Eliminar = async(p:Usuario): Promise<boolean>=>{
     try {
         const mongo= getConnection();
         const collection = mongo.db.collection("usuarios");
-        const resultado_de_datos = await collection.deleteOne({_id: p._id});
+        const resultado_de_datos = await collection.deleteOne({id: p._id});
         await mongo.client.close();
         return resultado_de_datos.acknowledged;
         
