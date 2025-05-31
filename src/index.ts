@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import usuariorouter from "./routes/usuarios.routes";
+import usuariorouter from "./routes/usuario.routes";
 import restauranterouter from './routes/restaurante.routes';
 import reservarouter from './routes/reserva.routes';
 
