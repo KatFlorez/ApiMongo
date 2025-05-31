@@ -13,9 +13,26 @@ export const Getusuarios = async () : Promise<Usuario[]> =>{
 
 export const Postusuario = async (p: Usuario) : Promise<Boolean> =>{
     try{
-       
         return await DaoUsuario.insertar(p);
     } catch (error){
         throw error;
+    }
+}
+
+export const Putusuario = async(p: Usuario) : Promise<Boolean> => {
+
+    try {
+        return await DaoUsuario.actualizar(p)
+    } catch (error) {
+        throw error
+    }
+}
+
+export const Deleteusuario = async(p: Usuario) : Promise<Boolean> => {
+
+    try {
+        return await DaoUsuario.Eliminar(p)
+    } catch (error) {
+        throw error
     }
 }
