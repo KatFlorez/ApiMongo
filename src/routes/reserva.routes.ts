@@ -1,8 +1,7 @@
-import { Router } from 'express';
+import express from "express"
 import * as reservaController from '../controllers/reserva.controller';
 
-const router = Router();
-
+const router = express.Router();
 router.get('/usuario/:usuarioId', async (req, res) => {
     try {
         const reservas = await reservaController.Getreservas(req.params.usuarioId);
